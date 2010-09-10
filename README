@@ -1,0 +1,23 @@
+Adds support for Inserting and Editing of HTML tables using the YUI Rich Text Editor.
+
+Features:
+  - Simple "Insert then Edit" interface, similar to existing components.
+  - Edit Table rows/cols, padding, border.
+  - Context menu for inserting/removing rows and cols.
+  - Edit column width.
+  - Live updating forms.
+
+Installation:
+
+1. Copy table-editor.js, table-editor.css and table-editor.png to your desired locations.
+2. Include the table-editor.js and table-editor.css in your HTML.
+3. Modify table-editor.css to point to table-editor.png
+4. After your Editor has been instantiated, initialize the table editor.
+
+  myEditor.initTableEditor();
+
+5. Add a button with a value of 'inserttable' to your toolbar.
+
+Example:
+
+Check out the included table-editor.html for an example.

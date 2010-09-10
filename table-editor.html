@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <!-- Skin CSS file -->
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.1/build/assets/skins/sam/skin.css">
+    <link rel="stylesheet" type="text/css" href="table-editor.css">
+    <!-- Utility Dependencies -->
+    <script src="http://yui.yahooapis.com/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+    <script src="http://yui.yahooapis.com/2.8.1/build/element/element-min.js"></script>
+    <!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
+    <script src="http://yui.yahooapis.com/2.8.1/build/container/container_core-min.js"></script>
+    <script src="http://yui.yahooapis.com/2.8.1/build/menu/menu-min.js"></script>
+    <script src="http://yui.yahooapis.com/2.8.1/build/button/button-min.js"></script>
+    <!-- Source file for Rich Text Editor-->
+    <script src="http://yui.yahooapis.com/2.8.1/build/editor/editor-min.js"></script>
+
+    <script src="table-editor.js" language="javascript" type="text/javascript"></script>
+
+    <style>
+
+    body {
+      font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+      font-size: 12px;
+    }
+
+  </style>
+  </head>
+
+  <body class="yui-skin-sam">
+    <textarea name="msgpost" id="msgpost" cols="50" rows="10">
+        <strong>Your</strong> HTML <em>code</em> goes here.<br>
+        This text will be pre-loaded in the editor when it is rendered.
+    </textarea>
+    <script>
+      var myEditor = new YAHOO.widget.Editor('msgpost', {
+        height: '300px',
+        width: '522px',
+        css: 'table td { border: 1px dashed #CCC }',
+        dompath: true, //Turns on the bar at the bottom
+        animate: true //Animates the opening, closing and moving of Editor windows
+      });
+
+
+      myEditor.initTableEditor();
+
+        myEditor.on('toolbarLoaded', function() {
+          var tb = this.toolbar;
+          var config = {
+              group: 'table',
+              label: 'Table',
+              buttons: [
+                  { type: 'push', label: 'Insert Table', value: 'inserttable' }
+              ]
+          };
+          this.toolbar.addSeparator();
+          this.toolbar.addButtonGroup(config);
+        }, myEditor, true);
+
+      myEditor.render();
+
+    </script>
+  </body>
+</html>
+
